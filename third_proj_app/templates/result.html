@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Analysis Result</h2>
+
+<p><b>📝 Original:</b><br>{{ original }}</p>
+
+<p><b>🌐 Detected:</b> {{ detected }}</p>
+
+<p><b>🔄 Translated ({{ lang }}):</b><br>{{ translated }}</p>
+
+<br>
+
+<h3>📊 Sentiment:</h3>
+
+{% if "Positive" in result %}
+    <h2 class="pos">{{ result }}</h2>
+{% elif "Negative" in result %}
+    <h2 class="neg">{{ result }}</h2>
+{% else %}
+    <h2 class="neu">{{ result }}</h2>
+{% endif %}
+
+<br>
+
+<a href="{% url 'upload' %}">
+    <button>Analyze Again</button>
+</a>
+
+{% endblock %}

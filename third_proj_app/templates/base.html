@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NLP AI Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: white;
+}
+
+/* LAYOUT */
+.wrapper {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin: 10px 0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    max-width: 600px;
+    margin: auto;
+}
+
+/* INPUT */
+textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    background: #ff7eb3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff4f81;
+}
+
+/* RESULT COLORS */
+.pos { color: #00ffae; }
+.neg { color: #ff4c4c; }
+.neu { color: #ffd369; }
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🤖 NLP SYSTEM</h2>
+
+        <a href="{% url 'home' %}">🏠 Home</a>
+        <a href="{% url 'about' %}">📄 About</a>
+        <a href="{% url 'upload' %}">📂 Analyze</a>
+        <a href="{% url 'contact' %}">📞 Contact</a>
+        <a href="{% url 'logout' %}">🚪 Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="card">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

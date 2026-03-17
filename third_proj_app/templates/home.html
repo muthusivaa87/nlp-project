@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="text-align:center;">
+
+    <h1 style="margin-bottom:10px;">Welcome to NLP AI Dashboard 🤖</h1>
+
+    <p style="font-size:18px; opacity:0.9;">
+        Empowering smarter decisions through intelligent text analysis.
+    </p>
+
+    <br>
+
+    <p style="
+        max-width:650px;
+        margin:auto;
+        line-height:1.8;
+        font-size:15px;
+        opacity:0.85;
+    ">
+        This platform uses Natural Language Processing (NLP) to analyze text from any language.
+        It automatically detects the language, translates it into your preferred language, and
+        performs sentiment analysis to understand emotions behind the text.
+    </p>
+
+    <br><br>
+
+    <a href="{% url 'upload' %}">
+        <button>🚀 Start Analyzing</button>
+    </a>
+
+</div>
+
+{% endblock %}

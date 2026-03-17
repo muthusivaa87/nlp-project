@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | NLP System </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GLASS CARD */
+.card {
+    width: 350px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+}
+
+/* TITLE */
+.card h2 {
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #ff7eb3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4f81;
+}
+
+/* LINK */
+.link {
+    margin-top: 15px;
+}
+
+a {
+    color: #ffd369;
+    text-decoration: none;
+}
+
+/* ERROR MESSAGE */
+.error {
+    color: #ff4c4c;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🔐 NLP Login</h2>
+
+    <!-- Django Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="error">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="link">
+        Don't have an account?
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+
+</body>
+</html>

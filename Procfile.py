@@ -1,0 +1,1 @@
+web: gunicorn third_proj_folder.wsgi

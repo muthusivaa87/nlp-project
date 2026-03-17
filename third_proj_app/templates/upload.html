@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Analyze Text 🌍</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <textarea name="text" rows="5" placeholder="Type any language..."></textarea>
+
+    <label>Select Output Language:</label>
+    <select name="lang">
+        <option value="en">🇬🇧 English</option>
+        <option value="ta">🇮🇳 Tamil</option>
+        <option value="hi">🇮🇳 Hindi</option>
+        <option value="fr">🇫🇷 French</option>
+        <option value="ur">🇵🇰 Urdu</option>
+    </select>
+
+    <button type="submit">Analyze 🔍</button>
+</form>
+{% endblock %}
