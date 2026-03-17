@@ -1,1 +1,1 @@
-web: gunicorn third_proj_folder.wsgi
+web: gunicorn NLP_proj_folder.wsgi
